@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1PanelFail2ban</title>
+    <url>/2024/12/09/1PanelFail2ban/</url>
+    <content><![CDATA[<h1 id="使用1Panel阻止SSH爆破"><a href="#使用1Panel阻止SSH爆破" class="headerlink" title="使用1Panel阻止SSH爆破"></a>使用1Panel阻止SSH爆破</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今日闲来无事,顺手看了一下1Panle的SSH登录日志,不看不知道,一看…….</p>
+<p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209093010476.png" alt="image-20241209093010476"></p>
+<blockquote>
+<p>1Panel的登录日志在 主机&gt;SSH管理&gt;登录日志</p>
+</blockquote>
+<p>不过查了一下IP发现这还是华为云自己的IP?</p>
+<p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209093316837.png" alt="image-20241209093316628"></p>
+<h2 id="安装Fail2ban"><a href="#安装Fail2ban" class="headerlink" title="安装Fail2ban"></a>安装Fail2ban</h2><p>不管怎么说还是加个防止SSH爆破的<strong>Fail2ban</strong>比较好</p>
+<p>在1Panel面板 <strong>工具箱&gt;Fail2ban</strong> 可以看见<strong>Fail2ban</strong>的运行状态,一般是未安装的,接下来就安装一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209093730659.png" alt="image-20241209093730416"></p>
+<div class="tabs" id="test"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="test-1">**RedHat / CentOS**</button><button type="button" class="tab " data-href="test-2">**Ubuntu / Debian**</button></ul><div class="tab-contents"><div class="tab-item-content active" id="test-1"><p><strong>1、安装 epel 源</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y epel-release</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、安装 Fail2ban</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y fail2ban</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、启动 Fail2ban 服务</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start fail2ban</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、开机自启动</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable fail2ban</span><br></pre></td></tr></table></figure>
+
+<p><strong>5、查看 Fail2ban 服务状态。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status fail2ban</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="test-2"><p><strong>1、安装 Fail2ban</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install fail2ban</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、Debian 12 及以上的版本需要手动安装 rsyslog</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install rsyslog</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、启动 Fail2ban 服务</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start fail2ban</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、开机自启动</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable fail2ban</span><br></pre></td></tr></table></figure>
+
+<p><strong>5、查看 Fail2ban 服务状态。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl status fail2ban</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="由于我是Ubuntu-我就用Ubuntu进行演示了"><a href="#由于我是Ubuntu-我就用Ubuntu进行演示了" class="headerlink" title="由于我是Ubuntu,我就用Ubuntu进行演示了"></a>由于我是Ubuntu,我就用Ubuntu进行演示了</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209094239674.png" alt="image-20241209094239335"></p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209094331213.png"></p>
+<h4 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h4><p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209094633659.png" alt="image-20241209094633456"></p>
+<h4 id="查看运行状态"><a href="#查看运行状态" class="headerlink" title="查看运行状态"></a>查看运行状态</h4><p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209094706699.png" alt="image-20241209094706494"></p>
+<p>运行正常即可</p>
+<h2 id="配置Fail2ban"><a href="#配置Fail2ban" class="headerlink" title="配置Fail2ban"></a>配置Fail2ban</h2><p>接下来返回1Panel的 <strong>工具箱&gt;Fail2ban</strong></p>
+<p>看到以下界面即可,你可以按需更改相应的配置,基本上保持默认即可,这样就大功告成啦</p>
+<p><img src="https://cdn.jsdelivr.net/gh/MapleLeaf1129/imgs/imgs/20241209094847144.png" alt="image-20241209094846912"></p>
+]]></content>
+      <tags>
+        <tag>1panel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CloudFlareIntranetPenetration</title>
+    <url>/2024/12/08/CloudFlareIntranetPenetration/</url>
+    <content><![CDATA[<h1 id="使用CloudFlare进行免费的内网穿透"><a href="#使用CloudFlare进行免费的内网穿透" class="headerlink" title="使用CloudFlare进行免费的内网穿透"></a>使用CloudFlare进行免费的内网穿透</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一个<strong>CloudFlare</strong>账号,如果没有就去<a href="https://dash.cloudflare.com/sign-up">CloudFlare</a>注册   <del>这不废话</del></li>
+<li>一个可以添加到<strong>CloudFlare</strong>的域名</li>
+</ul>
+<p>先咕一下</p>
+]]></content>
+      <tags>
+        <tag>CloudFlare 内网穿透</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用CloudFlare搭建反向代理</title>
     <url>/2024/11/29/CloudFlareReverseProxy/</url>
     <content><![CDATA[<h1 id="使用CloudFlare搭建反向代理"><a href="#使用CloudFlare搭建反向代理" class="headerlink" title="使用CloudFlare搭建反向代理"></a>使用CloudFlare搭建反向代理</h1><blockquote>
