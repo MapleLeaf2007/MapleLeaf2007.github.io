@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CloudFlare免费内网穿透</title>
-    <url>/2024/12/08/CloudFlareIntranetPenetration/</url>
-    <content><![CDATA[<h1 id="CloudFlare免费内网穿透"><a href="#CloudFlare免费内网穿透" class="headerlink" title="CloudFlare免费内网穿透"></a>CloudFlare免费内网穿透</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>一个<strong>CloudFlare</strong>账号,如果没有就去<a href="https://dash.cloudflare.com/sign-up">CloudFlare</a>注册   <del>这不废话</del></li>
-<li>一个可以添加到<strong>CloudFlare</strong>的域名</li>
-</ul>
-<p>先咕一下</p>
-]]></content>
-      <tags>
-        <tag>CloudFlare</tag>
-        <tag>内网穿透</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用1Panel阻止SSH爆破</title>
     <url>/2024/12/09/1PanelFail2ban/</url>
     <content><![CDATA[<h1 id="使用1Panel阻止SSH爆破"><a href="#使用1Panel阻止SSH爆破" class="headerlink" title="使用1Panel阻止SSH爆破"></a>使用1Panel阻止SSH爆破</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今日闲来无事,顺手看了一下1Panle的SSH登录日志,不看不知道,一看…….</p>
@@ -66,6 +52,69 @@
 ]]></content>
       <tags>
         <tag>1panel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CloudFlare免费内网穿透</title>
+    <url>/2024/12/08/CloudFlareIntranetPenetration/</url>
+    <content><![CDATA[<h1 id="CloudFlare免费内网穿透"><a href="#CloudFlare免费内网穿透" class="headerlink" title="CloudFlare免费内网穿透"></a>CloudFlare免费内网穿透</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一个<strong>CloudFlare</strong>账号,如果没有就去<a href="https://dash.cloudflare.com/sign-up">CloudFlare</a>注册   <del>这不废话</del></li>
+<li>一个可以添加到<strong>CloudFlare</strong>的域名</li>
+</ul>
+<h2 id="开通ZeroTrust服务"><a href="#开通ZeroTrust服务" class="headerlink" title="开通ZeroTrust服务"></a>开通ZeroTrust服务</h2><p>登录你的<strong>CloudFlare</strong>账号,在主页左侧点击<strong>Zero Trust</strong></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213140216809.png" alt="image-20241213140216397"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213140506220.png" alt="image-20241213140505952"></p>
+<p>这里随便取个名字,选择免费套餐即可</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213140607046.png" alt="image-20241213140606803"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213140654060.png" alt="image-20241213140653815"></p>
+<p>然后你会看见一个让你添加付款方式的界面</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213140807803.png" alt="image-20241213140807571"></p>
+<p>这里不需要添加付款方式,直接回到CloudFlare主页,<a href="https://dash.cloudflare.com/">https://dash.cloudflare.com</a></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213140920713.png" alt="image-20241213140920479"></p>
+<p>再次点击<strong>ZeroTrust</strong>,这样就没有添加付款方式直接结进来了</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141035796.png" alt="image-20241213141035460"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141105267.png" alt="image-20241213141104936"></p>
+<h2 id="新建隧道"><a href="#新建隧道" class="headerlink" title="新建隧道"></a>新建隧道</h2><p>在左侧<strong>Networks</strong>的下拉菜单里进入<strong>Tunnels</strong></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141201362.png" alt="image-20241213141201205"></p>
+<p>点击<code>Add a tunnel</code>新建一条隧道,选择<strong>CloudFlare</strong>,随便取个名字</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141312280.png" alt="image-20241213141311917"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141434785.png" alt="image-20241213141434557"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141532999.png" alt="image-20241213141532744"></p>
+<p>点击<code>Save tunnel</code>保存隧道,根据你的系统选择下载的应用程序</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213141735963.png" alt="image-20241213141735618"></p>
+<h2 id="安装并运行连接器"><a href="#安装并运行连接器" class="headerlink" title="安装并运行连接器"></a>安装并运行连接器</h2><p>我这里以<strong>Windows64位</strong>操作系统为例,下载完成直接运行</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213142213480.png" alt="image-20241213142212614"></p>
+<p>安装完成不会出现任何提示,回到<strong>CloudFlare</strong>,复制下方的一键安装命令</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213142452811.png" alt="image-20241213142452585"></p>
+<p>在搜索栏搜索<code>CMD</code>,右键<code>命令提示符</code>,选择<code>以管理员身份运行</code></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213142554108.png" alt="image-20241213142553673"></p>
+<p>粘贴从<strong>CloudFlare</strong>复制的代码,运行</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213142634555.png" alt="image-20241213142634368"></p>
+<p>这样就成功安装完成了</p>
+<h2 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h2><p>接下来配置域名</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213142835734.png" alt="image-20241213142835532"></p>
+<ul>
+<li><p>**子域名(Subdomain)**填入任意的子域名,</p>
+</li>
+<li><p><strong>域名(Domain)<strong>就选择托管在</strong>CloudFlare</strong>的域名</p>
+</li>
+<li><p>**路径(Path)**一般不需要管</p>
+</li>
+<li><p>**类型(Type)**按需选择,一些特殊协议需要额外配置,详情请访问CloudFlare具体文档</p>
+</li>
+<li><p><strong>URL</strong>填入需要穿透的地址,本机就是<code>127.0.0.1:</code>后面加端口号</p>
+</li>
+</ul>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213143349623.png" alt="image-20241213143349402"></p>
+<p>因为我需要内网穿透的是一个开在<code>3000</code>端口的<code>HTTP</code>网站,所以<strong>Type</strong>选择的HTTP,<strong>URL</strong>填的<code>127.0.0.1:3000</code></p>
+<p>最后点击<strong>Save hostname</strong>保存完成,这里的状态变为<strong>HEALTHY</strong>就是正常运行了</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213143646251.png" alt="image-20241213143646020"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241213143941514.png" alt="image-20241213143941340"></p>
+<p>访问一下对应的网址,也是正常访问了,这样,<strong>CloudFlare</strong>搭建的内网穿透服务就成功了</p>
+]]></content>
+      <tags>
+        <tag>CloudFlare</tag>
+        <tag>内网穿透</tag>
       </tags>
   </entry>
   <entry>
