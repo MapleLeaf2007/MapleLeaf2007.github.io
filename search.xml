@@ -154,7 +154,7 @@
 <p><img src="https://image.admilk.us.kg/image/imgs/20241214194618741.png" alt="image-20241214194618532"></p>
 <p>这样就可以让发送给任意<code>xxx@你的域名</code>的邮件发送给你,相当于直接拥有了无限多的邮箱</p>
 <p>收邮件就完成了,有发送邮件需求的可以继续往下配置发邮件</p>
-<h2 id="发邮件"><a href="#发邮件" class="headerlink" title="发邮件"></a>发邮件</h2><p>关于发邮件,这里只写<strong>outlook</strong>和<strong>gmail</strong>两种方式由于<code>Gmail</code>由于网络问题可能难以访问, 所以我更推荐使用<code>outlook</code>来代发邮件.</p>
+<h2 id="发邮件"><a href="#发邮件" class="headerlink" title="发邮件"></a>发邮件</h2><p>关于发邮件,这里只写<strong>outlook</strong>方式</p>
 <h3 id="OutLook"><a href="#OutLook" class="headerlink" title="OutLook"></a>OutLook</h3><p>打开<a href="https://outlook.live.com/">outlook</a>, 登录账号, 点击右上角设置 &gt; 查看全部outlook设置 &gt; 邮件 &gt; 同步电子邮件 &gt; 管理或选择主别名</p>
 <p><img src="https://image.admilk.us.kg/image/imgs/20241214195250002.png" alt="image-20241214195249740"></p>
 <p><img src="https://image.admilk.us.kg/image/imgs/20241214195522158.png" alt="image-20241214195521956"></p>
