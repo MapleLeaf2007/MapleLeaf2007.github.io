@@ -55,58 +55,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CloudFlare搭建无限邮箱</title>
-    <url>/2024/12/14/CloudFlareMail/</url>
-    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>一个<strong>CloudFlare</strong>账号,如果没有就去<a href="https://dash.cloudflare.com/sign-up">CloudFlare</a>注册   <del>这不废话</del></li>
-<li>一个可以添加到CloudFlare的域名</li>
-</ul>
-<h2 id="收邮件"><a href="#收邮件" class="headerlink" title="收邮件"></a>收邮件</h2><p>进入<strong>CloudFlare</strong>首页,点击你的域名进入详情页,点击左侧<code>电子邮件</code></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214190715185.png" alt="image-20241214190714728"></p>
-<p>点击<strong>开始使用</strong></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214190755498.png" alt="image-20241214190755304"></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214190902593.png" alt="image-20241214190902341"></p>
-<p>这里需要注意一下</p>
-<ul>
-<li><p>自定义地址就是<code>@域名</code>前面的部分,比如我填<code>admin</code>,邮箱地址就是<em><a href="mailto:&#97;&#x64;&#x6d;&#x69;&#x6e;&#x40;&#x4d;&#x61;&#x70;&#x6c;&#x65;&#76;&#101;&#97;&#x66;&#x31;&#49;&#x32;&#57;&#46;&#x75;&#x73;&#46;&#x6b;&#x67;">&#97;&#x64;&#x6d;&#x69;&#x6e;&#x40;&#x4d;&#x61;&#x70;&#x6c;&#x65;&#76;&#101;&#97;&#x66;&#x31;&#49;&#x32;&#57;&#46;&#x75;&#x73;&#46;&#x6b;&#x67;</a></em></p>
-</li>
-<li><p>目标位置就是向上方的邮箱地址发送邮件后,用于接受邮件的地址,也就是发送给上方的邮件会转发到这个地址</p>
-</li>
-</ul>
-<p>点击<strong>创建并验证</strong>,这里状态变成<code>待验证</code></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214191157391.png" alt="image-20241214191157174"></p>
-<p>去刚刚你填的<code>目标位置</code>的邮箱找到<strong>CloudFlare</strong>的验证邮件,点击<code>Verify email address</code>验证</p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214193527705.png" alt="image-20241214193527431"></p>
-<p>出现以下界面就是验证成功了</p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214193702624.png" alt="image-20241214193702394"></p>
-<p>返回<strong>CloudFlare</strong>,可以看见状态变为<strong>已验证</strong>,点击<code>继续</code></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214193726585.png" alt="image-20241214193726381"></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214193826175.png" alt="image-20241214193825924"></p>
-<p>可以看见<strong>DNS记录</strong>目前都是<strong>缺失</strong>状态,直接点击<code>添加记录并启用</code>,<strong>CloudFlare</strong>会自动补全<strong>DNS解析</strong></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214194011081.png" alt="image-20241214194010771">	这样,使用<strong>CloudFlare</strong>收邮件就完成了,可以发送邮件测试一下</p>
-<p>另外,点击<strong>路由规则</strong>,编辑下方的<code>Catch-all 地址</code></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214194319552.png" alt="image-20241214194319275"></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214194415575.png" alt="image-20241214194415366"></p>
-<p>将操作改为<strong>发送到电子邮件</strong>,将目标位置改为你之前填写的邮件地址,点击保存,将状态改为<strong>活动</strong></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214194618741.png" alt="image-20241214194618532"></p>
-<p>这样就可以让发送给任意<code>xxx@你的域名</code>的邮件发送给你,相当于直接拥有了无限多的邮箱</p>
-<p>收邮件就完成了,有发送邮件需求的可以继续往下配置发邮件</p>
-<h2 id="发邮件"><a href="#发邮件" class="headerlink" title="发邮件"></a>发邮件</h2><p>关于发邮件,这里只写<strong>outlook</strong>方式</p>
-<h3 id="OutLook"><a href="#OutLook" class="headerlink" title="OutLook"></a>OutLook</h3><p>打开<a href="https://outlook.live.com/">outlook</a>, 登录账号, 点击右上角设置 &gt; 查看全部outlook设置 &gt; 邮件 &gt; 同步电子邮件 &gt; 管理或选择主别名</p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214195250002.png" alt="image-20241214195249740"></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214195522158.png" alt="image-20241214195521956"></p>
-<p>点击<code>添加电子邮件</code>,选择<code>将现有电子邮件地址添加为 Microsoft 帐户别名</code>,填入你的邮箱地址,点击<code>添加别名</code>,<code>验证</code>,<code>发送电子邮件</code></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214195632194.png" alt="image-20241214195632018"></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214195810839.png" alt="image-20241214195810333"></p>
-<p><img src="https://image.admilk.us.kg/image/imgs/20241214195835183.png" alt="image-20241214195834980"></p>
-<p>在你的邮箱内找到验证邮件, 点击确定即可</p>
-]]></content>
-      <tags>
-        <tag>邮箱</tag>
-        <tag>CloudFlare</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CloudFlare免费内网穿透</title>
     <url>/2024/12/08/CloudFlareIntranetPenetration/</url>
     <content><![CDATA[<h1 id="CloudFlare免费内网穿透"><a href="#CloudFlare免费内网穿透" class="headerlink" title="CloudFlare免费内网穿透"></a>CloudFlare免费内网穿透</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
@@ -170,22 +118,56 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/11/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>CloudFlare搭建无限邮箱</title>
+    <url>/2024/12/14/CloudFlareMail/</url>
+    <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一个<strong>CloudFlare</strong>账号,如果没有就去<a href="https://dash.cloudflare.com/sign-up">CloudFlare</a>注册   <del>这不废话</del></li>
+<li>一个可以添加到CloudFlare的域名</li>
+</ul>
+<h2 id="收邮件"><a href="#收邮件" class="headerlink" title="收邮件"></a>收邮件</h2><p>进入<strong>CloudFlare</strong>首页,点击你的域名进入详情页,点击左侧<code>电子邮件</code></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214190715185.png" alt="image-20241214190714728"></p>
+<p>点击<strong>开始使用</strong></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214190755498.png" alt="image-20241214190755304"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214190902593.png" alt="image-20241214190902341"></p>
+<p>这里需要注意一下</p>
+<ul>
+<li><p>自定义地址就是<code>@域名</code>前面的部分,比如我填<code>admin</code>,邮箱地址就是<em><a href="mailto:&#97;&#100;&#109;&#x69;&#110;&#x40;&#77;&#x61;&#x70;&#x6c;&#101;&#x4c;&#101;&#x61;&#x66;&#49;&#x31;&#50;&#57;&#46;&#117;&#115;&#46;&#107;&#x67;">&#97;&#100;&#109;&#x69;&#110;&#x40;&#77;&#x61;&#x70;&#x6c;&#101;&#x4c;&#101;&#x61;&#x66;&#49;&#x31;&#50;&#57;&#46;&#117;&#115;&#46;&#107;&#x67;</a></em></p>
+</li>
+<li><p>目标位置就是向上方的邮箱地址发送邮件后,用于接受邮件的地址,也就是发送给上方的邮件会转发到这个地址</p>
+</li>
+</ul>
+<p>点击<strong>创建并验证</strong>,这里状态变成<code>待验证</code></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214191157391.png" alt="image-20241214191157174"></p>
+<p>去刚刚你填的<code>目标位置</code>的邮箱找到<strong>CloudFlare</strong>的验证邮件,点击<code>Verify email address</code>验证</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214193527705.png" alt="image-20241214193527431"></p>
+<p>出现以下界面就是验证成功了</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214193702624.png" alt="image-20241214193702394"></p>
+<p>返回<strong>CloudFlare</strong>,可以看见状态变为<strong>已验证</strong>,点击<code>继续</code></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214193726585.png" alt="image-20241214193726381"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214193826175.png" alt="image-20241214193825924"></p>
+<p>可以看见<strong>DNS记录</strong>目前都是<strong>缺失</strong>状态,直接点击<code>添加记录并启用</code>,<strong>CloudFlare</strong>会自动补全<strong>DNS解析</strong></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214194011081.png" alt="image-20241214194010771">	这样,使用<strong>CloudFlare</strong>收邮件就完成了,可以发送邮件测试一下</p>
+<p>另外,点击<strong>路由规则</strong>,编辑下方的<code>Catch-all 地址</code></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214194319552.png" alt="image-20241214194319275"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214194415575.png" alt="image-20241214194415366"></p>
+<p>将操作改为<strong>发送到电子邮件</strong>,将目标位置改为你之前填写的邮件地址,点击保存,将状态改为<strong>活动</strong></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214194618741.png" alt="image-20241214194618532"></p>
+<p>这样就可以让发送给任意<code>xxx@你的域名</code>的邮件发送给你,相当于直接拥有了无限多的邮箱</p>
+<p>收邮件就完成了,有发送邮件需求的可以继续往下配置发邮件</p>
+<h2 id="发邮件"><a href="#发邮件" class="headerlink" title="发邮件"></a>发邮件</h2><p>关于发邮件,这里只写<strong>outlook</strong>方式</p>
+<h3 id="OutLook"><a href="#OutLook" class="headerlink" title="OutLook"></a>OutLook</h3><p>打开<a href="https://outlook.live.com/">outlook</a>, 登录账号, 点击右上角设置 &gt; 查看全部outlook设置 &gt; 邮件 &gt; 同步电子邮件 &gt; 管理或选择主别名</p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214195250002.png" alt="image-20241214195249740"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214195522158.png" alt="image-20241214195521956"></p>
+<p>点击<code>添加电子邮件</code>,选择<code>将现有电子邮件地址添加为 Microsoft 帐户别名</code>,填入你的邮箱地址,点击<code>添加别名</code>,<code>验证</code>,<code>发送电子邮件</code></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214195632194.png" alt="image-20241214195632018"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214195810839.png" alt="image-20241214195810333"></p>
+<p><img src="https://image.admilk.us.kg/image/imgs/20241214195835183.png" alt="image-20241214195834980"></p>
+<p>在你的邮箱内找到验证邮件, 点击确定即可</p>
 ]]></content>
+      <tags>
+        <tag>CloudFlare</tag>
+        <tag>邮箱</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用CloudFlare搭建反向代理</title>
@@ -263,6 +245,24 @@
         <tag>CloudFlare</tag>
         <tag>代理</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/11/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>npm,pnpm,yarn换源</title>
