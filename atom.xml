@@ -6,7 +6,7 @@
   <link href="http://mapleleaf.icu/atom.xml" rel="self"/>
   
   <link href="http://mapleleaf.icu/"/>
-  <updated>2024-12-14T13:20:05.261Z</updated>
+  <updated>2025-01-06T05:26:32.066Z</updated>
   <id>http://mapleleaf.icu/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MicrosoftStore安装ubuntu出现0x8007019e</title>
+    <link href="http://mapleleaf.icu/2025/01/06/wslubuntu0x8007019e/"/>
+    <id>http://mapleleaf.icu/2025/01/06/wslubuntu0x8007019e/</id>
+    <published>2025-01-06T05:02:08.000Z</published>
+    <updated>2025-01-06T05:26:32.066Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前倾概要&quot;&gt;&lt;a href=&quot;#前倾概要&quot; class=&quot;headerlink&quot; title=&quot;前倾概要&quot;&gt;&lt;/a&gt;前倾概要&lt;/h2&gt;&lt;p&gt;在&lt;strong&gt;Microsoft</summary>
+        
+      
+    
+    
+    
+    
+    <category term="WSL" scheme="http://mapleleaf.icu/tags/WSL/"/>
+    
+  </entry>
   
   <entry>
     <title>CloudFlare搭建无限邮箱</title>
