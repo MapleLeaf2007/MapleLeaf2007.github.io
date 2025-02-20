@@ -1,0 +1,27 @@
+@font-face{
+    font-family: 'JetBrains Mono';
+    font-display: swap;
+    src: url('../font/JetBrainsMono-Regular.ttf') format("truetype");
+}
+@font-face{
+    font-family: 'Alimama FangYuanTi VF';
+    font-display: swap;
+    src: url('../font/AlimamaFangYuanTiVF-Thin.ttf') format("truetype");
+}
+@font-face{
+    font-family: 'Alimama Agile VF';
+    font-display: swap;
+    src: url('../font/AlimamaAgileVF-Thin.ttf') format("truetype");
+}
+
+body {
+    font-family:  'Alimama FangYuanTi VF', 'JetBrains Mono', 'Alimama Agile VF';
+    font-variant-ligatures: common-ligatures; /* 启用常规连体字 */
+    font-feature-settings: "liga" 1; /* 启用字体的连体字特性 */
+    font-variant: normal; /* 连体字体 */
+}
+
+/* 为等宽字体设置特别的样式 */
+code, pre, samp, kbd {
+    font-family: 'JetBrains Mono', monospace; /* 强制使用等宽字体 */
+}
